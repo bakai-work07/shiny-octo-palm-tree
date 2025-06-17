@@ -36,12 +36,11 @@ def plot_predictions(train_data, train_labels, test_data, test_labels, predictio
     train_labels = train_labels.cpu()
     test_data = test_data.cpu()
     test_labels = test_labels.cpu()
-    if predictions is not None:
-        predictions = predictions.cpu()
 
     plt.scatter(train_data, train_labels, c='r', s=4, label='training data')
     plt.scatter(test_data, test_labels, c='b', s=4, label='test data')
     if predictions is not None:
+        predictions = predictions.cpu()
         plt.scatter(test_data, predictions, c='g', s=4, label='predictions')
 
     plt.legend(loc='upper left')
